@@ -1,0 +1,165 @@
+/* GLOBAL SAFETY — prevents accidental overflow */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+}
+
+/* PAGE LAYOUT */
+#dashboard {
+  width: 100%; /* FIXED — do not use 100vw */
+  box-sizing: border-box; /* padding stays inside width */
+
+  display: grid;
+  padding-top: 80px; /* offset for fixed navbar */
+
+  grid-template-columns: 260px 1fr 260px;
+  gap: 22px;
+
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+
+  background: #0d1117;
+  min-height: 100vh;
+  color: #e5e7eb;
+}
+
+/* FORCE LEFT / CENTER / RIGHT POSITIONS */
+#dashboard > aside:first-of-type {
+  grid-column: 1; /* Suggested Repositories — LEFT */
+}
+
+#dashboard > main {
+  grid-column: 2; /* Your Repositories — CENTER */
+}
+
+#dashboard > aside:last-of-type {
+  grid-column: 3; /* Upcoming Events — RIGHT */
+}
+
+/* PANEL CARDS */
+#dashboard aside,
+#dashboard main {
+  background: #0f172a;
+  border-radius: 14px;
+  padding: 20px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  height: auto; /* FIXED — prevents vertical + horizontal overflow */
+}
+
+/* HOVER MICRO-ANIMATION */
+/* #dashboard aside:hover,
+#dashboard main:hover {
+  transform: translateY(-2px);
+} */
+
+/* HEADINGS */
+#dashboard aside h3,
+#dashboard main h2 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+/* REPOSITORY CARDS */
+.card-list > div {
+  background: #111b2e;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.25s ease;
+}
+
+.card-list > div:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.18);
+  background: #15203a;
+  cursor: pointer;
+}
+
+/* CARD TEXT */
+.card-list h4 {
+  margin: 0;
+}
+
+.card-list h4:first-child {
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+}
+
+.card-list h4:nth-child(2) {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #9ca3af;
+}
+
+/* SEARCH BAR */
+#search input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #0b1220;
+  color: white;
+  outline: none;
+  margin-bottom: 10px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+#search input::placeholder {
+  color: #9ca3af;
+}
+
+#search input:focus {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08);
+}
+
+/* EVENT LIST */
+#dashboard aside ul {
+  padding-left: 18px;
+}
+
+#dashboard aside li {
+  margin-bottom: 8px;
+  color: #cbd5f5;
+}
+
+/* COUNT TEXT */
+.repo-count {
+  opacity: 0.7;
+  margin-top: 2px;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+/* Star Button */
+.star-btn-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.star-btn{
+  color: white;
+  font-size: 20px;
+}
+
+.delete-icon {
+  color: white;
+  transition: color 0.2s ease;
+}
+
+.delete-icon:hover {
+  color: red;
+}

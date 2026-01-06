@@ -1,0 +1,66 @@
+.container {
+  padding: 10px 0;
+  color: white;
+  width: 350px;
+}
+
+.container h3 {
+  margin-bottom: 10px;
+}
+
+.searchArea input {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 10px 0 16px 0;
+  border-radius: 8px;
+  border: 1px solid #30363d;
+  background: #0d1117;
+  color: white;
+}
+
+.searchArea input:focus {
+  outline: none;
+  border-color: #58a6ff;
+}
+
+.emptyText {
+  color: #b3b3b3;
+  text-align: center;
+}
+
+.cardList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.repoCard {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  padding: 16px;
+  border-radius: 10px;
+  transition: border 0.2s ease, transform 0.2s ease;
+}
+
+.repoCard:hover {
+  border-color: #58a6ff;
+  transform: translateY(-2px);
+}
+
+.starHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.repoCard h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.repoCard p {
+  margin-top: 6px;
+  color: #b3b3b3;
+  font-size: 14px;
+}
