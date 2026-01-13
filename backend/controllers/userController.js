@@ -199,45 +199,6 @@ const deleteUserProfile = async (req, res) => {
   }
 };
 
-// const updateStarredRepositories = async (req, res) => {
-//   const userId = req.params.id;
-//   const { starredRepositories } = req.body;
-
-//   try {
-//     await connectClient();
-//     const db = client.db("Cluster0");
-//     const usersCollection = db.collection("users");
-
-//     if (!ObjectId.isValid(userId)) {
-//       return res.status(400).json({ message: "Invalid user id format." });
-//     }
-
-//     if (!Array.isArray(starredRepositories)) {
-//       return res.status(400).json({
-//         message: "starredRepositories must be an array",
-//       });
-//     }
-
-//     const { value } = await usersCollection.findOneAndUpdate(
-//       { _id: new ObjectId(userId) },
-//       { $set: { starRepos: starredRepositories } },
-//       { returnDocument: "after" }
-//     );
-
-//     if (!value) {
-//       return res.status(404).json({ message: "User not found" });
-//     }
-
-//     return res.json({
-//       message: "Starred repositories updated",
-//       starRepos: value.starRepos,
-//     });
-//   } catch (error) {
-//     console.error("Error updating starred repos:", error.message);
-//     return res.status(500).send("Server Error");
-//   }
-// };
-
 const updateStarredRepositories = async (req, res) => {
   const userId = req.params.id;
   const { starredRepositories } = req.body;

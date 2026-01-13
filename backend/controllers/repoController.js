@@ -182,23 +182,6 @@ const toggleVisibilityById = async (req, res) => {
   }
 };
 
-// const deleteRepositoryById = async (req, res) => {
-//   const { id } = req.params;
-
-//   try {
-//     const repository = await Repository.findByIdAndDelete(id);
-
-//     if (!repository) {
-//       return res
-//         .status(404)
-//         .json({ message: "Repository not found or not yours." });
-//     }
-//   } catch (error) {
-//     console.error("Error during deleting repository:", error);
-//     return res.status(500).json({ message: "Server error" });
-//   }
-// };
-
 const deleteRepositoryById = async (req, res) => {
   const { id } = req.params;
 
@@ -209,20 +192,18 @@ const deleteRepositoryById = async (req, res) => {
       return res.status(404).json({ message: "Repository not found." });
     }
 
-    await repository.deleteOne();   // <-- guaranteed awaited
+    await repository.deleteOne(); // <-- guaranteed awaited
 
     return res.status(200).json({
       success: true,
       message: "Repository deleted",
-      id
+      id,
     });
-
   } catch (error) {
     console.error("Error deleting repository:", error);
     return res.status(500).json({ message: "Server error" });
   }
 };
-
 
 export {
   createRepository,
